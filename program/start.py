@@ -53,18 +53,18 @@ async def _human_time_duration(seconds):
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""✨ **Welcome {message.from_user.mention()} !**\n
-💭 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) **Allows you to play music and video on groups through the new Telegram's video chats!**
+        f"""✨ **Salut/Bună {message.from_user.mention()} !**\n
+💭 [{BOT_NAME}](https://t.me/{BOT_USERNAME}) **Vă permite să redați muzică și videoclipuri în grupuri sau canale prin noua functie de chat-uri video Telegram!**
 
-💡 **Find out all the Bot's commands and how they work by clicking on the » 📚 Commands button!**
+💡 **Află toate comenzile Bot-ului și cum funcționează apăsând pe butonul » 📚 Commands !**
 
-🔖 **To know how to use this bot, please click on the » ❓ Basic Guide button!**
+🔖 **Pentru a ști cum să utilizezi acest bot, te rog sa apesi pe » ❓ Basic Guide button!**
 """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "➕ Add me to your Group ➕",
+                        "➕ Adauga-ma in grupul tau ➕",
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
                     )
                 ],
@@ -83,7 +83,7 @@ async def start_(client: Client, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "🌐 Source Code", url="https://github.com/levina-lab/video-stream"
+                        "🌐 Translation", url="https://t.me/OTRportal/"
                     )
                 ],
             ]
@@ -103,7 +103,7 @@ async def alive(client: Client, message: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("✨ Group", url=f"https://t.me/{GROUP_SUPPORT}"),
+                InlineKeyboardButton("✨ Grup", url=f"https://t.me/{GROUP_SUPPORT}"),
                 InlineKeyboardButton(
                     "📣 Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
                 ),
@@ -125,7 +125,7 @@ async def ping_pong(client: Client, message: Message):
     start = time()
     m_reply = await message.reply_text("pinging...")
     delta_ping = time() - start
-    await m_reply.edit_text("🏓 `PONG!!`\n" f"⚡️ `{delta_ping * 1000:.3f} ms`")
+    await m_reply.edit_text("🏓 `PONG Bulangiule!!`\n" f"⚡️ `{delta_ping * 1000:.3f} ms`")
 
 
 @Client.on_message(command(["uptime", f"uptime@{BOT_USERNAME}"]) & ~filters.edited)
@@ -147,9 +147,9 @@ async def new_chat(c: Client, m: Message):
     for member in m.new_chat_members:
         if member.id == bot_id:
             return await m.reply(
-                "❤️ **Thanks for adding me to the Group !**\n\n"
-                "**Promote me as administrator of the Group, otherwise I will not be able to work properly, and don't forget to type /userbotjoin for invite the assistant.**\n\n"
-                "**Once done, type** /reload",
+                "❤️ **Mulțumesc că m-ai adăugat în grup/canal !**\n\n"
+                "**Promoveaza-ma ca administrator al grupului, altfel nu voi putea funcționa corect și nu uita să tastezi /userbotjoin pentru a invita asistentul.**\n\n"
+                "**Odată terminat, tasteaza** /reload",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
@@ -157,7 +157,7 @@ async def new_chat(c: Client, m: Message):
                             InlineKeyboardButton("💭 Support", url=f"https://t.me/{GROUP_SUPPORT}")
                         ],
                         [
-                            InlineKeyboardButton("👤 Assistant", url=f"https://t.me/{ass_uname}")
+                            InlineKeyboardButton("👤 Asistent", url=f"https://t.me/{ass_uname}")
                         ]
                     ]
                 )
